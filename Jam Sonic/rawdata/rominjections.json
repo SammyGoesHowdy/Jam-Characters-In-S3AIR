@@ -1,0 +1,22 @@
+{
+	"soniccomp":
+	{
+		"File": "Sonic 2P.bin",
+		"RomInject": "0x337780"
+	},
+	"comppal":
+	{
+		"File": "SonicAndTails.bin",
+		"RomInject": "0xA8A3C"
+	},
+	"competition":
+	{
+		"File": "Player Sprites.bin",
+		"RomInject": "0x3A1B30"
+	},
+	"comp menu palette":
+	{
+		"File": "2.bin",
+		"RomInject": "0x20A55E"
+	}
+}

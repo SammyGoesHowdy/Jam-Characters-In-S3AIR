@@ -1,0 +1,8 @@
+{
+	"S3Complete_LevelSelectIcon_Tails":  { "File": "dataSel_lifeContinue.png", "Rect": "28,4,16,16", "Center": "0,0" },
+	"ESS_Char_Tails":  { "File": "dataSel_character_tails.png", "Rect": "0,0,40,40", "Center": "25,40" },
+	"ESS_Life_Tails":  { "File": "hud_life_sprites.png", "Rect": "0,0,16,16", "Center": "8,16" },
+	"ESS_Cont_Tails":  { "File": "hud_text_sprites.png", "Rect": "20,87,20,19", "Center": "10,18" },
+	"dataSel_savePortrait_Tails":  { "File": "ZoneIcons_Finished.png", "Center": "0,0" },
+	"dataSel_savePortrait_TailsSuper":  { "File": "ZoneIcons_Finished.png", "Center": "0,0" }
+}

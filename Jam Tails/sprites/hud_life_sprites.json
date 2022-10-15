@@ -1,0 +1,6 @@
+{
+	"hud_lives_icon_tails":  { "File": "hud_life_sprites.png", "Rect": "0,0,48,16", "Center": "0,0" },
+	"hud_lives_icon_miles":  { "File": "hud_life_sprites.png", "Rect": "0,16,48,16", "Center": "0,0" },
+	"hud_lives_icon_knux_tails":    { "File": "hud_tails.png", "Rect": "0,32,48,16" , "Center": "0,0" },
+	"hud_lives_icon_knux_miles":    { "File": "hud_tails.png", "Rect": "0,48,48,16" , "Center": "0,0" }
+}

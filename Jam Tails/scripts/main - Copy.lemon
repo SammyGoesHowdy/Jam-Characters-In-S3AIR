@@ -1,0 +1,25 @@
+// palette options
+
+global u8 change_tails_palette
+
+function u64 getCharacterPaletteKey(u8 character)
+{
+	if ((character == CHARACTER_TAILS) && (change_tails_palette == 1))
+	
+		return "alt_character_palette_tails"
+
+	return base.getCharacterPaletteKey(character)
+}
+
+
+// Tornado renderhook (not quite, we just paste Tails's head on)
+function bool Standalone.onWriteToSpriteTable(s16 px, s16 py, u16 renderQueue)
+{
+	if (objA0.update_address == 0x0677ce || objA0.update_address == 0x067800)
+	{
+		u64 key = "tails_in_tornado"
+		Renderer.drawCustomSprite(key, px - 1, py - 28, 0x00, 0, renderQueue + 2)
+		Renderer.addSpriteMask(px - 11, py - 28, 23, 20, renderQueue + 1, 8000)
+	}
+	return base.Standalone.onWriteToSpriteTable(px, py, renderQueue)
+}

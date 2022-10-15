@@ -1,0 +1,4 @@
+{
+	"dataSel_character_tails":  { "File": "DataSelect_Sprites.bmp", "Rect": "0,48,36,40", "Center": "0,0" },
+	"dataSel_lifeContinue_tails":  { "File": "DataSelect_Sprites.bmp", "Rect": "41,0,22,40", "Center": "1,0" }
+}

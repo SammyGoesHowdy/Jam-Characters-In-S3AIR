@@ -1,0 +1,29 @@
+{
+	"Metadata":
+	{
+		"Name": "Jam Tails",
+		"Author": "SammyGoesHowdy",
+		"Description": "This mod replaces Tails with the Tails sprites from Sonic Jam, with custom sprites.",
+		"ModVersion": "1.0"
+		
+	},
+	"Settings":
+	{
+		"List":
+		[
+			{
+				"InternalName": "ChangeJamPalette",
+				"DisplayName": "Palette",
+				"Variable": "change_tails_palette",
+				"DefaultValue": "0",
+				"Options":
+				{
+					"0": "Original",
+					"1": "Sonic 3",
+					"2": "S3 with Jam Sonic Blacks",
+					"3": "MAME"
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,75 @@
+// palette options
+
+global u8 change_tails_palette
+
+function u64 getCharacterPaletteKey(u8 character)
+{
+	if ((character == CHARACTER_TAILS) && (change_tails_palette == 1))
+	{
+		return "alt_character_palette_tails"
+	}
+	else if ((character == CHARACTER_TAILS) && (change_tails_palette == 2))
+	{
+		return "gamecom_green_character_palette_tails"
+	}
+	return base.getCharacterPaletteKey(character)
+}
+function s32 ESS_saveboxgetcolor(u8 chars)
+{
+	// returns an RGB color
+	if (chars == CHARS_TAILS_ALONE)
+		return 0x8C8C8C
+	return base.ESS_saveboxgetcolor(chars)
+}
+
+function bool Standalone.onWriteToSpriteTable(s16 px, s16 py, u16 renderQueue)
+{
+    if (objA0.update_address == 0x0677ce || objA0.update_address == 0x067800)
+    {
+        u64 key = "tails_in_tornado"
+        Renderer.drawCustomSprite(key, px - 1, py - 28, 0x60, 0, renderQueue + 2)
+        Renderer.addSpriteMask(px - 11, py - 28, 23, 20, renderQueue + 1, 8000)
+    }
+    return base.Standalone.onWriteToSpriteTable(px, py, renderQueue)
+}
+
+function bool Standalone.onWriteToSpriteTable(s16 px, s16 py, u16 renderQueue)
+{
+    bool IsSaveEmpty = (u8[0xffffe6ac + (u8[A0 + 0x2e] * 10)] & 0x80) == 0
+    if (objA0.update_address == 0x00d42c && u8[A0 + 0x05] == 0x00 && objA0.animation.sprite == 0x06 && IsSaveEmpty)
+    {
+        u8 TailsAtex = 0x40 + CHARACTER_TAILS * 0x20
+        if (Renderer.hasCustomSprite("dataSel_lifeContinue_tails"))
+            Renderer.drawCustomSprite("dataSel_lifeContinue_tails", px-16, py + 8, TailsAtex, SPRITE_FLAG_PRIO, renderQueue)
+    }
+    return base.Standalone.onWriteToSpriteTable(px, py, renderQueue)
+}
+
+function bool Standalone.onWriteToSpriteTable(s16 px, s16 py, u16 renderQueue)
+{
+    if (u8[A0 + 0x38] == 0xff && u16[0xffffb04a + 0x30] == 0 && objA0.animation.timer == 0 && u16[A0 + 0x34] == CHARS_TAILS_ALONE)
+    {    
+        u64 portrait = 0
+        if (u8[A0 + 0x23] == 0x1b)
+            portrait = "dataSel_savePortrait_Clear"
+        else if (u8[A0 + 0x23] == 0x23)
+        {
+            if (u8[A0 + 0x3b] == 1)
+                portrait = "dataSel_savePortrait_Tails"
+            else if (u8[A0 + 0x3b] == 2)
+                portrait = "dataSel_savePortrait_TailsSuper"
+        }
+
+        if (Renderer.hasCustomSprite(portrait))
+        {
+        #if GAMEAPP >= 0x22051500
+            Renderer.drawCustomSprite(portrait, px - 40, py - ((Mods.isModActive("Data Select Character Sprites - MAIN") && System.getGlobalVariableValueByName("MenuStyle.dataSelect") == 0) ? 128 : 120), 0, SPRITE_FLAG_PRIO, renderQueue)
+        #endif
+        #if GAMEAPP <= 0x22050800
+            Renderer.drawCustomSprite(portrait, px - 40, py - 120, 0, SPRITE_FLAG_PRIO, renderQueue)
+        #endif
+            u8[A0 + 0x23] = 0
+        }
+    }
+    return base.Standalone.onWriteToSpriteTable(px, py, renderQueue)
+}

@@ -1,10 +1,10 @@
 <img src="icon.png" align="right" />
 
-# Jam-Characters-In-S3A.I.R
+# Jam Characters in Sonic 3 - Angel Island Revisited
 
 
 ## What this mod does:
-Have you ever wanted to play as Sonic from the Game.com release of Sonic Jam? Well, now you can thanks to this mod!
+Have you ever wanted to play as Sonic from the Gamecom release of Sonic Jam? Well, now you can thanks to this mod!
 
 This mod replaces Sonic & Tails with the Sonic & Tails sprites from Sonic Jam, with custom sprites.
 
